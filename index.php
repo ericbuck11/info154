@@ -28,6 +28,8 @@ echo $twitter->buildOauth($url, $requestMethod)
 
 /** Perform a GET request and echo the response **/
 /** Note: Set the GET field BEFORE calling buildOauth(); **/
+
+/**
 $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 $getfield = '?screen_name=StephenAtHome&count=3';
 $requestMethod = 'GET';
@@ -36,6 +38,15 @@ echo $twitter->setGetfield($getfield)
              ->buildOauth($url, $requestMethod)
              ->performRequest();
 
+**/
+$url = 'https://api.twitter.com/1.1/search/tweets.json';
+$getfield = '?q=#selfie';
+$requestMethod = 'GET';
 
+$twitter = new TwitterAPIExchange($settings);
+$response = $twitter->setGetfield($getfield)
+    ->buildOauth($url, $requestMethod)
+    ->performRequest();
 
+var_dump(json_decode($response));
 
