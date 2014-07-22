@@ -10,35 +10,17 @@ $settings = array(
     'consumer_secret' => "tdBeFnaj9InEGSZiXLF0LQGu7SewX7ofUF3PKYqyMKSMz1kRYN"
 );
 
-/** URL for REST request, see: https://dev.twitter.com/docs/api/1.1/ 
-$url = 'https://api.twitter.com/1.1/blocks/create.json';
-$requestMethod = 'POST';
-
-/** POST fields required by the URL above. See relevant docs as above 
-$postfields = array(
-    'screen_name' => 'usernameToBlock', 
-    'skip_status' => '1'
-);
-
-/** Perform a POST request and echo the response 
-$twitter = new TwitterAPIExchange($settings);
-echo $twitter->buildOauth($url, $requestMethod)
-             ->setPostfields($postfields)
-             ->performRequest();
-
-/** Perform a GET request and echo the response **/
-/** Note: Set the GET field BEFORE calling buildOauth(); **/
-
-/**
+/** Eric Buck + Kenny Adeogun - This pulls down the 3 most recent tweets from Stephen Colbert  
 $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 $getfield = '?screen_name=StephenAtHome&count=3';
 $requestMethod = 'GET';
 $twitter = new TwitterAPIExchange($settings);
 echo $twitter->setGetfield($getfield)
              ->buildOauth($url, $requestMethod)
-             ->performRequest();
+             ->performRequest(); **/
 
-**/
+
+/** Christian Santarelli + Zach Albert - This searches for all tweets with #selfie **/
 $url = 'https://api.twitter.com/1.1/search/tweets.json';
 $getfield = '?q=#selfie';
 $requestMethod = 'GET';
@@ -48,5 +30,7 @@ $response = $twitter->setGetfield($getfield)
     ->buildOauth($url, $requestMethod)
     ->performRequest();
 
-var_dump(json_decode($response));
+var_dump(json_decode($response)); 
+
+
 
